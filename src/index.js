@@ -4,7 +4,14 @@ import compareVersion from 'compare-version'
 
 import mavenSearch from './maven-central'
 
-g2js.parseFile('./example.gradle').then((representation) => {
+const { argv } = require('yargs')
+    .usage('Usage: $0 -f [path]')
+    .alias('f', 'file')
+    .nargs('f', 1)
+    .describe('f', 'Gradle file to parse')
+    .demandOption(['f'])
+
+g2js.parseFile(argv.file).then((representation) => {
     for (let i = 0; i < representation.dependencies.length; i += 1) {
         const dep = representation.dependencies[i]
         mavenSearch(dep.group, dep.name)

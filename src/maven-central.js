@@ -1,5 +1,7 @@
 import request from 'superagent'
 
+require('babel-polyfill')
+
 const API_URL = 'http://search.maven.org'
 
 const search = async (group, artifact) => {
