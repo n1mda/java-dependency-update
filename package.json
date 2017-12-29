@@ -1,0 +1,26 @@
+{
+  "name": "gradle-dep-update",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node lib/index.js",
+    "dev:start": "nodemon --ignore lib --exec babel-node src",
+    "test": "eslint src",
+    "prod:build": "NODE_ENV=production rimraf lib && babel src -d lib -ignore .test.js"
+  },
+  "dependencies": {
+    "compare-version": "^0.1.2",
+    "gradle-to-js": "^1.0.1",
+    "superagent": "^3.8.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "nodemon": "^1.14.3",
+    "rimraf": "^2.6.2"
+  }
+}
